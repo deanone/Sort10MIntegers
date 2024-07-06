@@ -25,4 +25,15 @@ public class Util {
             e.printStackTrace();
         }
     }
+    
+    // create file of random unsorted integers from 0 to 9999999
+//    int n = 1_000_000;
+//    int min = 0;
+//    int max = 10_000_000;
+//    String filename = "integers.txt";
+//    long start = System.currentTimeMillis();
+//    Util.createFileOfRandomUnsortedIntegersWithoutDuplicates(n, min, max, filename);
+//    long finish = System.currentTimeMillis();
+//    long timeElapsed = (finish - start) / 1000;
+//    System.out.println("10 million created in " + timeElapsed + " seconds.");
 }
