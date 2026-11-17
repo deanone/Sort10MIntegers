@@ -8,22 +8,18 @@ import java.util.List;
 public class Quicksort {
     
     // utility method
-    private static void swap(List<Integer> arr, int i, int j)
-    {
+    private static void swap(List<Integer> arr, int i, int j) {
         int temp = arr.get(i);
         arr.set(i, arr.get(j));
         arr.set(j, temp);
     }
     
     // Lomuto partition scheme, i.e., it selects the last element of the array as pivot
-    private static int partition(List<Integer> arr, int lo, int hi)
-    {
+    private static int partition(List<Integer> arr, int lo, int hi) {
         int pivot = arr.get(hi);
         int i = (lo - 1);
-        for (int j = lo; j < hi; j++)
-        {
-            if (arr.get(j) <= pivot)
-            {
+        for (int j = lo; j < hi; j++) {
+            if (arr.get(j) <= pivot) {
                 i++;
                 swap(arr, i, j);
             }
@@ -35,10 +31,8 @@ public class Quicksort {
         return i;
     }
     
-    public static void run(List<Integer> arr, int lo, int hi)
-    {
-        if ((lo > hi) || (lo < 0))
-        {
+    public static void run(List<Integer> arr, int lo, int hi) {
+        if ((lo > hi) || (lo < 0)) {
             return;
         }
 
@@ -48,5 +42,4 @@ public class Quicksort {
 
         return;
     }
-
 }
