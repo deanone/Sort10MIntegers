@@ -4,13 +4,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.BitSet;
 
-public class FastSorter {
+public class BitmapSort {
     private int n;
     private String inputFilename;
     private String outputFilename;
     BitSet bs;
     
-    public FastSorter(int n, String inputFilename) {
+    public BitmapSort(int n, String inputFilename) {
         this.n = n;
         this.inputFilename = inputFilename;
         this.outputFilename = inputFilename.split("\\.")[0] + "_sorted.txt";

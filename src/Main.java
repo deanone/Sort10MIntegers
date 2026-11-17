@@ -19,8 +19,6 @@ public class Main {
         if ("quicksort".equals(choice)) {
           
           String outputFilename = inputFilename.split("\\.")[0] + "_sorted.txt";
-          
-          long start = System.currentTimeMillis();
           List<Integer> arr = new ArrayList<>();
           
           try {
@@ -34,7 +32,11 @@ public class Main {
               ioe.printStackTrace();
           }
           
+          // measure only the time needed for sorting operations, not I/O
+          long start = System.currentTimeMillis();
           Quicksort.run(arr, 0, 100_000-1);
+          long finish = System.currentTimeMillis();
+          long timeElapsed = finish - start;
           
           try {
               FileWriter myWriter = new FileWriter(outputFilename);
@@ -46,27 +48,23 @@ public class Main {
               ioe.printStackTrace();
           }
           
-          
-          long finish = System.currentTimeMillis();
-          long timeElapsed = finish - start;
           System.out.println("Quicksort: " + n + " integers sorted in " + timeElapsed + " milliseconds.");
-        } else if("fastsort".equals(choice)) {    
-            long start = System.currentTimeMillis();
-     
+        } else if("bitmapsort".equals(choice)) {    
             // step 1. create a bitset will all bits 0
-            FastSorter fs = new FastSorter(n, inputFilename);
+            BitmapSort fs = new BitmapSort(n, inputFilename);
             
             // step 2. set bits to 1 for integers in the input file
             fs.readFileAndLoadToBitSet();
             
+            long start = System.currentTimeMillis();
             // step 3. write sorted integers to output file
             fs.sortAndStoreToFile();
             
             long finish = System.currentTimeMillis();
             long timeElapsed = finish - start;
-            System.out.println("Fastsort: " + n + " integers sorted in " + timeElapsed + " milliseconds.");
+            System.out.println("Bitmapsort: " + n + " integers sorted in " + timeElapsed + " milliseconds.");
         } else {
-            System.out.println("You need to select one of the 2 choices: (a) quicksort, (b) fastsort");
+            System.out.println("You need to select one of the 2 choices: (a) quicksort, (b) bitmapsort");
         }
     }
 }
